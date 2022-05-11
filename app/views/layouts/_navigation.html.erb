@@ -1,0 +1,25 @@
+<nav class="bg-white py-4 mt-1 border-b border-gray-400" role="navigation" aria-label="main-navigation">
+  <div class="flex flex-wrap items-center justify-center lg:justify-start lg:content-center px-4 lg:px:6">
+
+    <%= link_to root_path, class:"leading-normal no-underline text-gray-800 my-2 md:my-0" do %>
+      <h1 class="text-lg pr-2 font-bold">File Library</h1>
+    <% end %>
+
+    <div class="flex flex-wrap justify-start w-full lg:w-2/3">
+    </div>
+
+
+    <div class="w-full flex flex-wrap flex-1 items-center justify-end pt-4 lg:pt-0"> 
+      <% if user_signed_in? %>
+        <div class="mr-3">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"btn btn-outline btn-small mr-2" %>
+        </div>
+      <% else %> 
+        <div class="mr-3">
+          <%= link_to "Login", new_user_session_path, class:"btn btn-outline btn-small mr-2" %>
+          <%= link_to "Sign up", new_user_registration_path, class:"btn btn-purple btn-small mr-2" %>
+        </div>          
+      <% end %>
+    </div>
+  </div>
+</nav>

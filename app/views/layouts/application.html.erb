@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EkAnek</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta content="<%= @ekanek_token %>" name="ekanek"/>
+
+    <% if Rails.env.development? %>
+      <meta content="http://localhost:3000/" name="base"/>
+    <% elsif Rails.env.production? %>
+      <meta content="https://<%= Rails.application.credentials[:production][:host] %>/" name="base"/>
+    <% end %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render "layouts/navigation" %>
+    <div class="container mx-auto">
+      <p class="notice animate__animated animate__fadeOut"><%= notice %></p>
+      <p class="alert animate__animated animate__fadeOut"><%= alert %></p>
+      <%= yield %>
+    </div>
+  </body>
+</html>
